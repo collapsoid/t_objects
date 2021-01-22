@@ -1,0 +1,32 @@
+.objects-list {
+  background-color: #fefefe;
+  width: 240px;
+  text-align: center;
+  border-radius: 2px;
+}
+
+.objects-list__item_selected {
+  background-color: #e3e8f1;
+  border-left: 3px solid #3466fd;
+  color: #3466fd;
+}
+
+.objects-list__add-objects-btn {
+  height: 45px;
+  width: 220px;
+  border-radius: 50px;
+  border-color: #3265fe;
+  background-color: #3265fe;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 13px;
+  box-shadow: 1px 1px 5px 0 gray;
+}
+
+.objects-list__add-objects {
+  padding: 10px;
+}
+
+.objects-list__add-objects-btn:active {
+  transform: translateY(1px);
+}

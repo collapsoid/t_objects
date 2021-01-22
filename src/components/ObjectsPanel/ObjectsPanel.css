@@ -1,0 +1,19 @@
+.objects-panel {
+  padding: 5px 10px;
+}
+
+.objects-panel__header-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+.objects-panel__objective {
+  white-space: nowrap;
+}
+
+.objects-panel__content-container {
+  display: grid;
+  grid-template-columns: 240px auto;
+  column-gap: 25px;
+}

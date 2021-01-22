@@ -1,0 +1,23 @@
+.header-navbar {
+  height: 40px;
+  padding-left: 15px;
+}
+
+.header-navbar__list {
+  height: 100%;
+  display: flex;
+  font-weight: 600;
+}
+
+.header-navbar__item {
+  white-space: nowrap;
+  padding: 0 10px;
+  line-height: 40px;
+  overflow: hidden;
+}
+
+.header-navbar__item_active {
+  background-color: #fefefe;
+  border-top: 2px solid #fba903;
+  line-height: 36px;
+}
