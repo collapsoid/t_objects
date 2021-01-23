@@ -44,7 +44,7 @@ const ObjectsCreationPanel = ({currentTargetObjects, addTargetObjects, setState}
     setState(null);
   };
 
-  const fieldsProps = {
+  const fieldProps = {
     planes: {
       ref: planesRef,
       onChange: calculateObjectsQuantity
@@ -66,7 +66,7 @@ const ObjectsCreationPanel = ({currentTargetObjects, addTargetObjects, setState}
           <ObjectsFormField label="ЗАДАЙТЕ НАЗВАНИЕ ОБЪЕКТА" name="title" type="text" data-type="text" placeholder="Название объекта" error="Введите название объекта" required />
         </div>
 
-        {generateForm(currentTargetObjects.template, fieldsProps)}
+        {generateForm(currentTargetObjects.template, fieldProps)}
 
         <div className="objects-creation-panel__summary">
           <button className="objects-creation-panel__create-group-btn form-btn" type="submit" onClick={submitHandler}>СОЗДАТЬ ГРУППУ ОБЪЕКТОВ</button>

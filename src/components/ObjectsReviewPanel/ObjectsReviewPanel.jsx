@@ -26,15 +26,8 @@ const ObjectsReviewPanel = ({currentTargetObjects, editTargetObjects, deleteTarg
 
   useEffect(() => {
     for (let element of formRef.current.getElementsByTagName('input')) {
-      if (currentTargetObjects.current) {
-        element.value = currentTargetObjects.current[element.name];
-        element.disabled = true;
-      } else {
-        if (!element.dataset.not_editable) {
-          element.value = '';
-          element.disabled = false;
-        }
-      }
+      element.value = currentTargetObjects.current[element.name];
+      element.disabled = true;
     }
 
     setInEdition(false);
@@ -76,7 +69,7 @@ const ObjectsReviewPanel = ({currentTargetObjects, editTargetObjects, deleteTarg
     setState(null);
   };
 
-  const fieldsProps = {
+  const fieldProps = {
     planes: {
       ref: planesRef,
       onChange: calculateObjectsQuantity
@@ -100,7 +93,7 @@ const ObjectsReviewPanel = ({currentTargetObjects, editTargetObjects, deleteTarg
           <ObjectsFormField label="ЗАДАЙТЕ НАЗВАНИЕ ОБЪЕКТА" name="title" type="text" data-type="text" placeholder="Название объекта" error="Введите название объекта" required />
         </div>
 
-        {generateForm(currentTargetObjects.template, fieldsProps)}
+        {generateForm(currentTargetObjects.template, fieldProps)}
 
         {inEdition &&
           <div className="objects-review-panel__summary">
