@@ -10,7 +10,7 @@ import {withForm} from '../HOC';
 import ObjectsCounter from '../ObjectsCounter/ObjectsCounter';
 
 
-const ObjectsCreationPanel = ({formRef, children, currentTargetObjects, addTargetObjects, setState}) => {
+const ObjectsCreationPanel = withForm(({formRef, children, currentTargetObjects, addTargetObjects, setState}) => {
   const planesRef = useRef(null);
   const objectsOnPlaneRef = useRef(null);
   const [objectsQuantity, setObjectsQuantity] = useState(0);
@@ -56,8 +56,8 @@ const ObjectsCreationPanel = ({formRef, children, currentTargetObjects, addTarge
       </div>
     </section>
   );
-};
+});
 
 const mapState = ({currentTargetObjects}) => ({currentTargetObjects});
 
-export default connect(mapState, {addTargetObjects})(withForm(ObjectsCreationPanel));
+export default connect(mapState, {addTargetObjects})(ObjectsCreationPanel);
