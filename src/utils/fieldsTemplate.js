@@ -1,6 +1,7 @@
 export const targetObjectsTemplate = [
   {
     type: "group",
+    name: "group1",
     items: [
       {
         input: {
@@ -58,6 +59,7 @@ export const targetObjectsTemplate = [
   },
   {
     type: "group",
+    name: "group2",
     items: [
       {
         input: {
@@ -105,6 +107,7 @@ export const targetObjectsTemplate = [
   },
   {
     type: "group",
+    name: "group3",
     items: [
       {
         input: {
@@ -152,6 +155,7 @@ export const targetObjectsTemplate = [
   },
   {
     type: "group",
+    name: "group4",
     items: [
       {
         input: {
