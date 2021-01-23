@@ -23,23 +23,3 @@
   display: inline-block;
   padding-left: 40px;
 }
-
-.objects-creation-panel__field-group {
-  padding-top: 15px;
-}
-
-.field-group {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.field-group div {
-  margin-right: 5px;
-}
-
-.object-name input {
-  width: 100%;
-  padding: 15px 5px;
-  box-sizing: border-box;
-}

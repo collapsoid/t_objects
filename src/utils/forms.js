@@ -11,3 +11,15 @@ export const getInputFieldValue = element => {
 
   return value;
 };
+
+export const getObjectsParameters = form => {
+  const objectsParameters = {
+    objectsQuantity: +form.planes.value * +form.objectsOnPlane.value
+  };
+
+  for (let element of form.getElementsByTagName('input')) {
+    objectsParameters[element.name] = getInputFieldValue(element);      
+  }
+
+  return objectsParameters;
+};

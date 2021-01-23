@@ -3,8 +3,8 @@ import {connect} from 'react-redux';
 
 import './ObjectsReviewPanel.css';
 
+import {getObjectsParameters} from '../../utils';
 import {editTargetObjects, deleteTargetObjects, reviewTargetObjects} from '../../store/actions';
-import {getInputFieldValue} from '../../utils';
 
 import {withForm} from '../HOC';
 import ObjectsCounter from '../ObjectsCounter/ObjectsCounter';
@@ -51,15 +51,7 @@ const ObjectsReviewPanel = ({formRef, children, currentTargetObjects, editTarget
       return;
     }
 
-    const objectsParameters = {
-      objectsQuantity: objectsQuantity || currentTargetObjects.current.objectsQuantity
-    };
-
-    for (let element of formRef.current.getElementsByTagName('input')) {
-      objectsParameters[element.name] = getInputFieldValue(element);      
-    }
-
-    editTargetObjects(objectsParameters, currentTargetObjects.current.id);
+    editTargetObjects(getObjectsParameters(formRef.current), currentTargetObjects.current.id);
     setState(null);
   };
 

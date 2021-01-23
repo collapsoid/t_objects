@@ -3,8 +3,8 @@ import {connect} from 'react-redux';
 
 import './ObjectsCreationPanel.css';
 
+import {getObjectsParameters} from '../../utils';
 import {addTargetObjects} from '../../store/actions';
-import {getInputFieldValue} from '../../utils';
 
 import {withForm} from '../HOC';
 import ObjectsCounter from '../ObjectsCounter/ObjectsCounter';
@@ -26,15 +26,7 @@ const ObjectsCreationPanel = ({formRef, children, currentTargetObjects, addTarge
       return;
     }
 
-    const objectsParameters = {
-      objectsQuantity
-    };
-
-    for (let field of formRef.current.getElementsByTagName('input')) {
-      objectsParameters[field.name] = getInputFieldValue(field);
-    }
-
-    addTargetObjects(objectsParameters);
+    addTargetObjects(getObjectsParameters(formRef.current));
     setState(null);
   };
 
