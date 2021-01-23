@@ -17,7 +17,9 @@ const ObjectsReviewPanel = ({currentTargetObjects, editTargetObjects, deleteTarg
   const [objectsQuantity, setObjectsQuantity] = useState(0);
   const [inEdition, setInEdition] = useState(false);
 
-  const calculateObjectsQuantity = () => setObjectsQuantity(+planesRef.current.value * +objectsOnPlaneRef.current.value);
+  const calculateObjectsQuantity = () => {
+    setObjectsQuantity(+planesRef.current.value * +objectsOnPlaneRef.current.value);
+  }
   const editObjects = () => setInEdition(true);
   const deleteObjects = () => {
     deleteTargetObjects(currentTargetObjects.current.id);

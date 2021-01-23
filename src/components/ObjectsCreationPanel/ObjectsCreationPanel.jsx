@@ -16,7 +16,9 @@ const ObjectsCreationPanel = ({currentTargetObjects, addTargetObjects, setState}
   const objectsOnPlaneRef = useRef(null);
   const [objectsQuantity, setObjectsQuantity] = useState(0);
 
-  const calculateObjectsQuantity = () => {setObjectsQuantity(+planesRef.current.value * +objectsOnPlaneRef.current.value)};
+  const calculateObjectsQuantity = () => {
+    setObjectsQuantity(+planesRef.current.value * +objectsOnPlaneRef.current.value)
+  };
 
   const submitHandler = e => {
     e.preventDefault();
