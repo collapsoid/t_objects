@@ -26,7 +26,7 @@ export function withForm(Component) {
 
     return (
       <Component {...props} formRef={formRef}>
-        {(template, fieldProps) => (
+        {(template, fieldProps = {}) => (
           <form ref={formRef} onSubmit={submitHandler} noValidate>
             <div className="object-name">
               <ObjectsFormField label="ЗАДАЙТЕ НАЗВАНИЕ ОБЪЕКТА" name="title" type="text" data-type="text" placeholder="Название объекта" error="Введите название объекта" required />
