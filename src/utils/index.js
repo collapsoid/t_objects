@@ -1,3 +1,3 @@
-export {isFieldValid, validateForm} from './validation';
+export {FormValidator} from './FormValidator/FormValidator';
 export {targetObjectsTemplate} from './fieldsTemplate';
-export {getInputFieldValue, getObjectsParameters} from './forms';
+export {FormProcessor} from './FormProcessor/FormProcessor';
