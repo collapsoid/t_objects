@@ -14,6 +14,7 @@ const ObjectsCreationPanel = withForm(({formRef, children, currentTargetObjects,
   const planesRef = useRef(null);
   const objectsOnPlaneRef = useRef(null);
   const [objectsQuantity, setObjectsQuantity] = useState(0);
+  const formProcessor = new FormProcessor();
 
   const calculateObjectsQuantity = () => {
     setObjectsQuantity(+planesRef.current.value * +objectsOnPlaneRef.current.value);
@@ -26,8 +27,10 @@ const ObjectsCreationPanel = withForm(({formRef, children, currentTargetObjects,
       return;
     }
 
-    const formProcessor = new FormProcessor();
-    const objectsParameters = {...formProcessor.collectFormFieldsValue(formRef.current), objectsQuantity};
+    const objectsParameters = {
+      ...formProcessor.collectFormFieldsValue(formRef.current),
+      objectsQuantity
+    };
 
     addTargetObjects(objectsParameters);
     setEditorState(null);

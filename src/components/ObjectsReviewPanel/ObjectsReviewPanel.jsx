@@ -15,6 +15,7 @@ const ObjectsReviewPanel = withForm(({formRef, children, currentTargetObjects, e
   const objectsOnPlaneRef = useRef(null);
   const [objectsQuantity, setObjectsQuantity] = useState(0);
   const [inEdition, setInEdition] = useState(false);
+  const formProcessor = new FormProcessor();
 
   const calculateObjectsQuantity = () => {
     setObjectsQuantity(+planesRef.current.value * +objectsOnPlaneRef.current.value);
@@ -51,7 +52,6 @@ const ObjectsReviewPanel = withForm(({formRef, children, currentTargetObjects, e
       return;
     }
 
-    const formProcessor = new FormProcessor();
     const objectsParameters = {
       ...formProcessor.collectFormFieldsValue(formRef.current),
       objectsQuantity: objectsQuantity || currentTargetObjects.current.objectsQuantity

@@ -7,12 +7,11 @@ import ObjectsFormField from '../ObjectsFormField/ObjectsFormField';
 export function withForm(Component) {
   return props => {
     const formRef = useRef(null);
+    const validator = new FormValidator();
   
     const submitHandler = e => {
       e.preventDefault();
   
-      const validator = new FormValidator();
-
       let invalidFields = validator.validateForm(formRef.current);
       for (let field of formRef.current.getElementsByTagName('input')) {
         if (invalidFields.find(el => el.name === field.name)) {
