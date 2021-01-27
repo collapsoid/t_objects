@@ -12,7 +12,7 @@ import ObjectsReviewPanel from '../ObjectsReviewPanel/ObjectsReviewPanel';
 
 const ObjectsPanel = ({currentTargetObjects}) => {
   const [isVisible, setIsVisible] = useState(true);
-  const [state, setState] = useState(null);
+  const [editorState, setEditorState] = useState(null);
 
   return (
     <div className="objects-panel">
@@ -27,12 +27,12 @@ const ObjectsPanel = ({currentTargetObjects}) => {
       {isVisible &&
         <div className="objects-panel__content-container">
           <div className="objects-panel__objects-list">
-            <ObjectsList state={state} setState={setState} />
+            <ObjectsList state={editorState} setState={setEditorState} />
           </div>
-          {state &&
+          {editorState &&
             <div className="objects-panel__objects-editor">
-              {state === 'creation' && <ObjectsCreationPanel setState={setState} {...currentTargetObjects} />}
-              {state === 'review' && <ObjectsReviewPanel setState={setState} {...currentTargetObjects} />}
+              {editorState === 'creation' && <ObjectsCreationPanel setEditorState={setEditorState} {...currentTargetObjects} />}
+              {editorState === 'review' && <ObjectsReviewPanel setEditorState={setEditorState} {...currentTargetObjects} />}
             </div>
           }
         </div>

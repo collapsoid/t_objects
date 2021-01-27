@@ -3,14 +3,14 @@ import {connect} from 'react-redux';
 
 import './ObjectsReviewPanel.css';
 
-import {getObjectsParameters} from '../../utils';
+import {FormProcessor} from '../../utils';
 import {editTargetObjects, deleteTargetObjects, reviewTargetObjects} from '../../store/actions';
 
 import {withForm} from '../HOC';
 import ObjectsCounter from '../ObjectsCounter/ObjectsCounter';
 
 
-const ObjectsReviewPanel = withForm(({formRef, children, currentTargetObjects, editTargetObjects, deleteTargetObjects, setState}) => {
+const ObjectsReviewPanel = withForm(({formRef, children, currentTargetObjects, editTargetObjects, deleteTargetObjects, setEditorState}) => {
   const planesRef = useRef(null);
   const objectsOnPlaneRef = useRef(null);
   const [objectsQuantity, setObjectsQuantity] = useState(0);
@@ -22,7 +22,7 @@ const ObjectsReviewPanel = withForm(({formRef, children, currentTargetObjects, e
   const editObjects = () => setInEdition(true);
   const deleteObjects = () => {
     deleteTargetObjects(currentTargetObjects.current.id);
-    setState(null);
+    setEditorState(null);
   };
 
   useEffect(() => {
@@ -51,8 +51,14 @@ const ObjectsReviewPanel = withForm(({formRef, children, currentTargetObjects, e
       return;
     }
 
-    editTargetObjects(getObjectsParameters(formRef.current), currentTargetObjects.current.id);
-    setState(null);
+    const formProcessor = new FormProcessor();
+    const objectsParameters = {
+      ...formProcessor.collectFormFieldsValue(formRef.current),
+      objectsQuantity: objectsQuantity || currentTargetObjects.current.objectsQuantity
+    };
+
+    editTargetObjects(objectsParameters, currentTargetObjects.current.id);
+    setEditorState(null);
   };
 
   const fieldProps = {

@@ -3,20 +3,20 @@ import {connect} from 'react-redux';
 
 import './ObjectsCreationPanel.css';
 
-import {getObjectsParameters} from '../../utils';
+import {FormProcessor} from '../../utils';
 import {addTargetObjects} from '../../store/actions';
 
 import {withForm} from '../HOC';
 import ObjectsCounter from '../ObjectsCounter/ObjectsCounter';
 
 
-const ObjectsCreationPanel = withForm(({formRef, children, currentTargetObjects, addTargetObjects, setState}) => {
+const ObjectsCreationPanel = withForm(({formRef, children, currentTargetObjects, addTargetObjects, setEditorState}) => {
   const planesRef = useRef(null);
   const objectsOnPlaneRef = useRef(null);
   const [objectsQuantity, setObjectsQuantity] = useState(0);
 
   const calculateObjectsQuantity = () => {
-    setObjectsQuantity(+planesRef.current.value * +objectsOnPlaneRef.current.value)
+    setObjectsQuantity(+planesRef.current.value * +objectsOnPlaneRef.current.value);
   };
 
   const submitHandler = () => {
@@ -26,8 +26,11 @@ const ObjectsCreationPanel = withForm(({formRef, children, currentTargetObjects,
       return;
     }
 
-    addTargetObjects(getObjectsParameters(formRef.current));
-    setState(null);
+    const formProcessor = new FormProcessor();
+    const objectsParameters = {...formProcessor.collectFormFieldsValue(formRef.current), objectsQuantity};
+
+    addTargetObjects(objectsParameters);
+    setEditorState(null);
   };
 
   const fieldProps = {

@@ -1,6 +1,6 @@
 import React, {useRef} from 'react';
 
-import {isFieldValid} from '../../utils';
+import {FormValidator} from '../../utils';
 
 import ObjectsFormField from '../ObjectsFormField/ObjectsFormField';
 
@@ -11,17 +11,22 @@ export function withForm(Component) {
     const submitHandler = e => {
       e.preventDefault();
   
-      let isFormValid = true;
+      const validator = new FormValidator();
+
+      let invalidFields = validator.validateForm(formRef.current);
       for (let field of formRef.current.getElementsByTagName('input')) {
-        if (!isFieldValid(field)) {
-          isFormValid = false;
+        if (invalidFields.find(el => el.name === field.name)) {
           field.classList.add('objects-form-field__input_invalid');
         } else {
           field.classList.remove('objects-form-field__input_invalid');
         }
       }
-  
-      formRef.current.formValid = isFormValid;
+
+      formRef.current.formValid = invalidFields.length > 0 ? false : true;
+
+      if (invalidFields.length) {
+        return;
+      }
     };
 
     return (
