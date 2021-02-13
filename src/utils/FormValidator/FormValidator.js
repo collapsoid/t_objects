@@ -1,6 +1,6 @@
 export class FormValidator {
   validateForm(form) {
-    if (!form || typeof form !== 'object' || form.tagName !== 'FORM') {
+    if (!form || form.tagName !== 'FORM') {
       throw new Error('validateForm method can only take a <form> element reference');
     }
 
