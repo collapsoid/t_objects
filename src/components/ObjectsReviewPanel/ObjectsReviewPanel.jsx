@@ -86,9 +86,11 @@ const ObjectsReviewPanel = withForm(({formRef, children, currentTargetObjects, e
       {inEdition &&
         <div className="objects-review-panel__summary">
           <button className="objects-review-panel__create-group-btn form-btn" type="submit" onClick={submitHandler}>СОХРАНИТЬ</button>
-          <div className="objects-review-panel__total-quantity">
-            <ObjectsCounter count={objectsQuantity} />
-          </div>
+          {objectsQuantity > 0 &&
+            <div className="objects-review-panel__total-quantity">
+              <ObjectsCounter count={objectsQuantity} />
+            </div>
+          }
         </div>
       }
     </section>

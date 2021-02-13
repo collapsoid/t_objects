@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ObjectsPanel hide/unhide panel should render the hidden panel 1`] = `
+<DocumentFragment>
+  <div
+    class="objects-panel"
+  >
+    <div
+      class="objects-panel__header-container"
+    >
+      <div
+        class="objects-panel__objective"
+      >
+        <div
+          class="objective"
+        >
+          <span
+            class="objective__title"
+          >
+            ДОБАВЬТЕ ЦЕЛЕВЫЕ ОБЪЕКТЫ И ОПРЕДЕЛИТЕ ИХ ПАРАМЕТРЫ
+          </span>
+          <img
+            alt="info"
+            class="objective__ico"
+            src="[object Object]"
+          />
+        </div>
+      </div>
+      <div
+        class="objects-panel__hide pseudo-btn"
+      >
+        <div
+          class="hide-btn"
+        >
+          <span
+            class="hide-btn__text"
+          >
+            развернуть
+          </span>
+          <img
+            alt="hide/unhide"
+            class="hide-btn__ico"
+            src="[object Object]"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ObjectsPanel should render the panel without editor 1`] = `
+<DocumentFragment>
+  <div
+    class="objects-panel"
+  >
+    <div
+      class="objects-panel__header-container"
+    >
+      <div
+        class="objects-panel__objective"
+      >
+        <div
+          class="objective"
+        >
+          <span
+            class="objective__title"
+          >
+            ДОБАВЬТЕ ЦЕЛЕВЫЕ ОБЪЕКТЫ И ОПРЕДЕЛИТЕ ИХ ПАРАМЕТРЫ
+          </span>
+          <img
+            alt="info"
+            class="objective__ico"
+            src="[object Object]"
+          />
+        </div>
+      </div>
+      <div
+        class="objects-panel__hide pseudo-btn"
+      >
+        <div
+          class="hide-btn"
+        >
+          <span
+            class="hide-btn__text"
+          >
+            свернуть
+          </span>
+          <img
+            alt="hide/unhide"
+            class="hide-btn__ico"
+            src="[object Object]"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="objects-panel__content-container"
+    >
+      <div
+        class="objects-panel__objects-list"
+      >
+        <div
+          class="objects-list"
+        >
+          <ul
+            class="objects-list__list"
+          />
+          <div
+            class="objects-list__add-objects"
+          >
+            <button
+              class="objects-list__add-objects-btn"
+            >
+              ДОБАВИТЬ ОБЪЕКТЫ
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
