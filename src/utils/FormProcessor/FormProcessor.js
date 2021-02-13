@@ -1,6 +1,6 @@
 export class FormProcessor {
   collectFormFieldsValue = form => {
-    if (!form || typeof form !== 'object' || !('noValidate' in form)) {
+    if (!form || typeof form !== 'object' || form.tagName !== 'FORM') {
       throw new Error('collectFormFieldsValue method can only take a <form> element reference');
     }
 
