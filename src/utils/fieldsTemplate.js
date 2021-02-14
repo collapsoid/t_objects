@@ -1,5 +1,5 @@
 export const targetObjectsTemplate = [
-  {
+  { 
     type: "group",
     name: "group1",
     items: [

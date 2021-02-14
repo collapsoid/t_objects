@@ -7,12 +7,12 @@ import ObjectsFormField from '../ObjectsFormField/ObjectsFormField';
 export function withForm(Component) {
   return props => {
     const formRef = useRef(null);
-    const validator = new FormValidator();
+    const formValidator = new FormValidator();
   
-    const submitHandler = e => {
+    const formSubmitHandler = e => {
       e.preventDefault();
   
-      let invalidFields = validator.validateForm(formRef.current);
+      let invalidFields = formValidator.validateForm(formRef.current);
       for (let field of formRef.current.getElementsByTagName('input')) {
         if (invalidFields.find(el => el.name === field.name)) {
           field.classList.add('objects-form-field__input_invalid');
@@ -21,23 +21,35 @@ export function withForm(Component) {
         }
       }
 
-      formRef.current.formValid = invalidFields.length > 0 ? false : true;
-
-      if (invalidFields.length) {
-        return;
-      }
+      formRef.current.formValid = invalidFields.length <= 0;
     };
-
+    
     return (
       <Component {...props} formRef={formRef}>
         {(template, fieldProps = {}) => (
-          <form ref={formRef} onSubmit={submitHandler} noValidate>
+          <form ref={formRef} onSubmit={formSubmitHandler} noValidate>
             <div className="object-name">
-              <ObjectsFormField label="ЗАДАЙТЕ НАЗВАНИЕ ОБЪЕКТА" name="title" type="text" data-type="text" placeholder="Название объекта" error="Введите название объекта" required />
+              <ObjectsFormField
+                label="ЗАДАЙТЕ НАЗВАНИЕ ОБЪЕКТА"
+                name="title"
+                type="text"
+                data-type="text"
+                placeholder="Название объекта"
+                error="Введите название объекта"
+                required
+              />
             </div>
-            {template.map(group => (
+            {template.map((group) => (
               <div key={group.name} className="field-group">
-                {group.items.map(({input, label, error}) => <ObjectsFormField key={label} label={label} error={error} {...input} {...fieldProps[input.name]} />)}
+                {group.items.map(({ input, label, error }) => (
+                  <ObjectsFormField
+                    key={label}
+                    label={label}
+                    error={error}
+                    {...input}
+                    {...fieldProps[input.name]}
+                  />
+                ))}
               </div>
             ))}
           </form>
