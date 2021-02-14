@@ -55,7 +55,11 @@ const ObjectsCreationPanel = withForm(({formRef, children, currentTargetObjects,
       {children(currentTargetObjects.template, fieldProps)}
 
       <div className="objects-creation-panel__summary">
-        <button className="objects-creation-panel__create-group-btn form-btn" type="submit" onClick={submitHandler}>СОЗДАТЬ ГРУППУ ОБЪЕКТОВ</button>
+        <button className="objects-creation-panel__create-group-btn form-btn"
+                type="submit"
+                onClick={submitHandler}>
+          СОЗДАТЬ ГРУППУ ОБЪЕКТОВ
+        </button>
         {objectsQuantity > 0 &&
           <div className="objects-creation-panel__total-quantity">
             <ObjectsCounter count={objectsQuantity} />

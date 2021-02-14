@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ObjectsCreationPanel should render creation panel 1`] = `
+<DocumentFragment>
+  <section
+    class="objects-creation-panel"
+  >
+    <header
+      class="objects-creation-panel__header"
+    >
+      <span
+        class="objects-creation-panel__title"
+      >
+        Создание регулярной группы целевых объектов
+      </span>
+    </header>
+    <form
+      novalidate=""
+    >
+      <div
+        class="object-name"
+      >
+        <div
+          class="objects-form-field"
+        >
+          <label
+            class="objects-form-field__label"
+          >
+            ЗАДАЙТЕ НАЗВАНИЕ ОБЪЕКТА
+          </label>
+          <div
+            class="objects-form-field__container"
+          >
+            <input
+              class="objects-form-field__input"
+              data-type="text"
+              name="title"
+              placeholder="Название объекта"
+              required=""
+              type="text"
+            />
+            <span
+              class="objects-form-field__error"
+            >
+              Введите название объекта
+            </span>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div
+      class="objects-creation-panel__summary"
+    >
+      <button
+        class="objects-creation-panel__create-group-btn form-btn"
+        type="submit"
+      >
+        СОЗДАТЬ ГРУППУ ОБЪЕКТОВ
+      </button>
+    </div>
+  </section>
+</DocumentFragment>
+`;
